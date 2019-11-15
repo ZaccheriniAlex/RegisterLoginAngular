@@ -5,6 +5,7 @@ import { HomePageComponent } from './pages/home-page/home-page/home-page.compone
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login/login.module#LoginModule' },
+  { path: 'register', loadChildren: './pages/register/register/register.module#RegisterModule' },
   { path: '**', redirectTo: '' },
 ];
 

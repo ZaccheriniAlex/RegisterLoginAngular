@@ -25,6 +25,6 @@ export class TopNavbarComponent implements OnInit {
   }
 
   goToRegister() {
-
+    this.router.navigate(['register']);
   }
 }
