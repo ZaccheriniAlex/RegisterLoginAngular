@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-navbar',
@@ -8,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class TopNavbarComponent implements OnInit {
 
   navbarOpen: boolean;
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+
+  goToLogin() {
+    this.router.navigate(['login']);
+  }
+
+  goToRegister() {
+
   }
 }
