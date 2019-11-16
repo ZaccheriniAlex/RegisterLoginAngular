@@ -26,7 +26,7 @@ export class RegisterFormComponent implements OnInit {
       confirmPassword: [''],
     },
     {
-      validator: confirmPasswordValidator(),
+      validators: [confirmPasswordValidator()],
     });
   }
 
@@ -38,10 +38,6 @@ export class RegisterFormComponent implements OnInit {
 
   sendData() {
     this.submitted = true;
-    // if(this.registrationGroup.invalid) {
-    //   console.log("Error");
-    //   return;
-    // }
     console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
   }
 

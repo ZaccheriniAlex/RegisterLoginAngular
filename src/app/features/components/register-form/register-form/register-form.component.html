@@ -47,7 +47,7 @@
     </div>
     <button class="btn btn-primary" type="submit">Invia</button>
     <button class="btn btn-primary btn-reset" type="reset" (click)="resetData()">Reset</button>
-    <div *ngIf="'registrationGroup.errors?.invalidPassword' && submitted">
+    <div *ngIf="registrationGroup.errors?.invalidPassword && submitted">
       <p>Errore</p>
     </div>
   </form>
