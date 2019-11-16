@@ -1,0 +1,4 @@
+<div *ngIf="conditionToShow" class="alert">
+  <p *ngIf="!referredFormControlName.dirty" class="attention">Questo campo è obbligatorio</p>
+  <p *ngIf="referredFormControlName.invalid" class="attention">*Campo non valido</p>
+</div>
