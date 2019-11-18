@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "",
+      "surname": "",
+      "mail": "",
+      "user": "admin",
+      "pass": "admin"
+    },
+    {
+      "name": "Alex",
+      "surname": "zac",
+      "mail": "za@mail.it",
+      "user": "zac",
+      "password": "zac",
+      "id": 1
+    },
+    {
+      "name": "Alex",
+      "surname": "Zaccherini",
+      "mail": "alexzaccherini@alice.it",
+      "user": "zac",
+      "password": "zac",
+      "id": 2
+    }
+  ]
+}

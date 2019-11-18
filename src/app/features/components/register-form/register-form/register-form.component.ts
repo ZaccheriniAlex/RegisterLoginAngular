@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from 'src/app/features/validators/confirm-password-validator/confirm-password-validator';
+import { EventEmitter } from '@angular/core';
+import { User } from 'src/app/features/model/User';
 
 @Component({
   selector: 'app-register-form',
@@ -8,6 +10,8 @@ import { confirmPasswordValidator } from 'src/app/features/validators/confirm-pa
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
+
+  @Output() sendedData = new EventEmitter<User>();
 
   valore;
   registrationGroup: FormGroup;
@@ -40,10 +44,15 @@ export class RegisterFormComponent implements OnInit {
 
   sendData() {
     this.submitted = true;
+    this.sendedData.emit(this._getUserFromForm());
     //console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
   }
 
   resetData() {
 
+  }
+
+  private _getUserFromForm(): User {
+    return new User(this.name.value, this.surname.value, this.mail.value, this.user.value, this.password.value)
   }
 }
