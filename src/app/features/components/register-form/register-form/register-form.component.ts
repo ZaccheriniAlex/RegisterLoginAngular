@@ -22,6 +22,7 @@ export class RegisterFormComponent implements OnInit {
       name: '' ,
       surname: '' ,
       mail: ['', [Validators.email] ],
+      user: '' ,
       password: [''],
       confirmPassword: [''],
     },
@@ -33,12 +34,13 @@ export class RegisterFormComponent implements OnInit {
   get name() { return this.registrationGroup.get('name'); }
   get surname() { return this.registrationGroup.get('surname'); }
   get mail() { return this.registrationGroup.get('mail'); }
+  get user() { return this.registrationGroup.get('user'); }
   get password() { return this.registrationGroup.get('password'); }
   get confirmPassword() { return this.registrationGroup.get('confirmPassword'); }
 
   sendData() {
     this.submitted = true;
-    console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
+    //console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
   }
 
   resetData() {
