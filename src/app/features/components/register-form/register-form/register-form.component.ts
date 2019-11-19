@@ -23,12 +23,12 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit() {
     this.registrationGroup = this.formBuilder.group( {
-      name: '' ,
-      surname: '' ,
-      mail: ['', [Validators.email] ],
-      user: '' ,
-      password: [''],
-      confirmPassword: [''],
+      name: ['', [Validators.required] ],
+      surname: ['', [Validators.required] ],
+      mail: ['', [Validators.required, Validators.email] ],
+      user: ['', [Validators.required] ],
+      password: ['', [Validators.required] ],
+      confirmPassword: ['', [Validators.required] ],
     },
     {
       validators: [confirmPasswordValidator()],
@@ -44,8 +44,10 @@ export class RegisterFormComponent implements OnInit {
 
   sendData() {
     this.submitted = true;
-    this.sendedData.emit(this._getUserFromForm());
-    //console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
+    if (this.registrationGroup.valid) {
+      this.sendedData.emit(this._getUserFromForm());
+      //console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
+    }
   }
 
   resetData() {

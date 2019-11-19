@@ -54,7 +54,7 @@
       </div>
       <app-invalid-paragraph [referredFormControlName]="confirmPassword" [conditionToShow]="submitted"></app-invalid-paragraph>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!registrationGroup.valid">Invia</button>
+    <button class="btn btn-primary" type="submit">Invia</button>
     <button class="btn btn-primary btn-reset" type="reset" (click)="resetData()">Reset</button>
     <div *ngIf="registrationGroup.errors?.invalidPassword && submitted">
       <p>La conferma della password non è valida</p>
