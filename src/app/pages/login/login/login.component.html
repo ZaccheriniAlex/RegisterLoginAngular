@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container-fluid fill w-100">
+  <div class="row">
+    <div class="content-form">
+      <p class="text-center">Login</p>
+      <form class="d-flex flex-column align-items-center">
+        <div class="form-group">
+          <label for="username" class="col-sm-2">
+            Username:
+          </label>
+          <div class="col-sm-10">
+            <input id="username" type="text" class="formControl" formControlName="username">
+          </div>
+          <!-- <app-invalid-paragraph [referredFormControlName]="surname" [conditionToShow]="submitted"></app-invalid-paragraph> -->
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-sm-2">
+            Password:
+          </label>
+          <div class="col-sm-10">
+            <input id="password" type="text" class="formControl" formControlName="password">
+          </div>
+          <!-- <app-invalid-paragraph [referredFormControlName]="surname" [conditionToShow]="submitted"></app-invalid-paragraph> -->
+        </div>
+        <button class="btn btn-primary">Conferma</button>
+      </form>
+    </div>
+  </div>
+</div>

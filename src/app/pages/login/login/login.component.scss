@@ -1,0 +1,20 @@
+.container-fluid {
+  display: flex;
+}
+
+.fill {
+  height: 100%;
+  min-height: 100%;
+  position: fixed;
+}
+
+.row {
+  padding: 1rem;
+  margin: 5rem auto auto;
+}
+
+.content-form {
+  border: 2px solid black;
+  border-radius: 20%;
+  padding: 1rem;
+}
