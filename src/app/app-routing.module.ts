@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/login/login/login.module#LoginModule' },
   { path: 'register', loadChildren: './pages/register/register/register.module#RegisterModule' },
+  { path: 'user', loadChildren: './pages/user/user/user.module#UserModule' },
+  { path: 'admin', loadChildren: './pages/administration/administration/administration.module#AdministrationModule'},
   { path: '**', redirectTo: '' },
 ];
 

@@ -38,8 +38,12 @@ export class LoginComponent implements OnInit {
       //let isPresent: boolean = false;
       this.users = result;
       for (let user of this.users) {
-        if(this._isSameUser(user)) {
-          this.router.navigate(['']);
+        if (this._isAdmin()) {
+          this.router.navigate(['/admin']);
+          return;
+        }
+        if (this._isSameUser(user)) {
+          this.router.navigate(['/user'], { queryParams: { name: user.name, surname: user.surname } });
           return;
         }
       }
@@ -51,5 +55,9 @@ export class LoginComponent implements OnInit {
 
   private _isSameUser(user: User) {
     return (user.user == this.username.value) && (user.password == this.password.value);
+  }
+
+  private _isAdmin() {
+    return (this.username.value == 'admin') && (this.password.value == 'admin');
   }
 }
