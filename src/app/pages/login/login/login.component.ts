@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { UserLoginClientService } from 'src/app/services/user-login-client/user-login-client.service'
+import { Router } from '@angular/router';
+import { User } from 'src/app/features/model/User';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,10 +10,18 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  get username() { return this.loginGroup.get('username') };
+  get password() { return this.loginGroup.get('password') };
+
   loginGroup: FormGroup;
   submitted: boolean = false;
+  users = [];
 
-  constructor( private formBuilder: FormBuilder ) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginClient: UserLoginClientService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.loginGroup = this.formBuilder.group(
@@ -24,10 +34,22 @@ export class LoginComponent implements OnInit {
 
   sendData() {
     this.submitted = true;
-    console.log(`dati inviati: ${ this.username.value } ${ this.password.value }`);
+    this.loginClient.getUsers().subscribe(result => {
+      //let isPresent: boolean = false;
+      this.users = result;
+      for (let user of this.users) {
+        if(this._isSameUser(user)) {
+          this.router.navigate(['']);
+          return;
+        }
+      }
+      window.alert("Username o password non corretti");
+    });
+
+    // this.router.navigate(['']);
   }
 
-
-  get username() { return this.loginGroup.get('username') };
-  get password() { return this.loginGroup.get('password') };
+  private _isSameUser(user: User) {
+    return (user.user == this.username.value) && (user.password == this.password.value);
+  }
 }

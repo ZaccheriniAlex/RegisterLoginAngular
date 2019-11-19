@@ -46,12 +46,12 @@ export class RegisterFormComponent implements OnInit {
     this.submitted = true;
     if (this.registrationGroup.valid) {
       this.sendedData.emit(this._getUserFromForm());
-      //console.log(`${this.name.value} ${this.surname.value} ${this.mail.value} ${this.password.value} ${this.confirmPassword.value}`);
+      window.alert('Registrazione avvenuta con successo');
     }
   }
 
   resetData() {
-
+    this.registrationGroup.reset();
   }
 
   private _getUserFromForm(): User {

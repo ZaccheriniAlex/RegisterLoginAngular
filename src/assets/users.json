@@ -6,23 +6,23 @@
       "surname": "",
       "mail": "",
       "user": "admin",
-      "pass": "admin"
+      "password": "admin"
     },
     {
       "name": "Alex",
-      "surname": "zac",
-      "mail": "za@mail.it",
+      "surname": "Zaccherini",
+      "mail": "mail@mail.com",
       "user": "zac",
       "password": "zac",
       "id": 1
     },
     {
-      "name": "Alex",
-      "surname": "Zaccherini",
-      "mail": "alexzaccherini@alice.it",
-      "user": "zac",
-      "password": "zac",
+      "name": "Martina",
+      "surname": "Finetti",
+      "mail": "mail.mail@mail.com",
+      "user": "marti",
+      "password": "marti",
       "id": 2
-    },
+    }
   ]
 }
