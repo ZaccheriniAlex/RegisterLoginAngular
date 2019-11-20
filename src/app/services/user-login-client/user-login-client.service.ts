@@ -12,14 +12,6 @@ export class UserLoginClientService {
 
   constructor( private httpClient: HttpClient ) { }
 
-  // isPresent(user: string, password: string) {
-  //   return this._getUsers().subscribe(result => {
-  //     this.users = result;
-  //     return true;
-  //   });
-
-  // }
-
   public getUsers() {
     return this.httpClient.get<User[]>(url);
   }

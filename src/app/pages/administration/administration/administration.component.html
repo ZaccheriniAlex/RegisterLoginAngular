@@ -1,1 +1,10 @@
-<p>administration works!</p>
+<div class="container-fluid">
+  <h1>Administration panel</h1>
+  <ag-grid-angular
+    class="ag-theme-balham user-table"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    [modules]="modules"
+    [domLayout]="'autoHeight'">
+  </ag-grid-angular>
+</div>
