@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopNavbarComponent } from './features/components/top-navbar/top-navbar/top-navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
-import { InvalidParagraphComponent } from './features/components/invalidParagraph/invalid-paragraph/invalid-paragraph.component';
 
 @NgModule({
   declarations: [

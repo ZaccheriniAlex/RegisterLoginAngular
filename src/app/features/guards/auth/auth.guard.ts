@@ -28,6 +28,7 @@ export class AuthGuard implements CanActivate {
         window.alert('Non è stato usato un username valido, riprova a fare il login');
         this.router.navigate(['login']);
       }
+      this.router.navigate(['']);
       return false;
     }
   }

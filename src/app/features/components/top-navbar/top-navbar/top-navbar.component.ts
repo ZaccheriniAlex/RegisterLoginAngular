@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentUserService } from 'src/app/services/current-user/current-user.service';
 
 @Component({
   selector: 'app-top-navbar',
@@ -9,11 +10,15 @@ import { Router } from '@angular/router';
 export class TopNavbarComponent implements OnInit {
 
   navbarOpen: boolean;
+  // userLogged: boolean;
+
   constructor(
     private router: Router,
+    // private currentUser: CurrentUserService,
   ) { }
 
   ngOnInit() {
+    // this.userLogged = this.currentUser.isLogged();
   }
 
   toggleNavbar() {
