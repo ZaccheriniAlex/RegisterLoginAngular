@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserLoginClientService } from './user-login-client.service';
+import { UserLoginClientService } from './user-client.service';
 
 describe('UserLoginClientService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

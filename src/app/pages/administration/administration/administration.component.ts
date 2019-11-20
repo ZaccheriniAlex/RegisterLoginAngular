@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllCommunityModules } from '@ag-grid-community/all-modules'
-import { UserLoginClientService } from 'src/app/services/user-login-client/user-login-client.service';
+import { UserLoginClientService } from 'src/app/services/user-client/user-client.service';
 
 @Component({
   selector: 'app-administration',
@@ -15,12 +15,6 @@ export class AdministrationComponent implements OnInit {
     { headerName: 'UserMail', field: 'mail' },
     { headerName: 'UserUsername', field: 'user' },
   ];
-
-  // rowData = [
-  //   { name: 'Alex', surname: 'Zaccherini', mail: 'mail@mail.it', username: 'zac' },
-  //   { name: 'Martina', surname: 'Finetti', mail: 'mail@m.it', username: 'marti', },
-  //   { name: 'Antonio', surname: 'Zaccherini', mail: 'antonio@mail.it', username: 'ZAC' },
-  // ];
 
   rowData: any;
 
