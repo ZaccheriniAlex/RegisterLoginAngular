@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserLoginClientService } from 'src/app/services/user-login-client/user-login-client.service'
 import { Router } from '@angular/router';
 import { User } from 'src/app/features/model/User';
+import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -34,10 +35,8 @@ export class LoginComponent implements OnInit {
 
   sendData() {
     this.submitted = true;
-    this.loginClient.getUsers().subscribe(result => {
-      //let isPresent: boolean = false;
-      this.users = result;
-      for (let user of this.users) {
+    this.loginClient.getUsers().pipe(tap(result => {
+      for (let user of result) {
         if (this._isAdmin()) {
           this.router.navigate(['/admin']);
           return;
@@ -48,9 +47,7 @@ export class LoginComponent implements OnInit {
         }
       }
       window.alert("Username o password non corretti");
-    });
-
-    // this.router.navigate(['']);
+    })).subscribe();
   }
 
   private _isSameUser(user: User) {
