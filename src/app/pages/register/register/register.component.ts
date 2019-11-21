@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/features/model/User';
-import { UserRegistrationClientService } from 'src/app/services/user-registration-client/user-registration-client.service';
+import { UserClientService } from 'src/app/services/user-client/user-client.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import { UserRegistrationClientService } from 'src/app/services/user-registratio
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userClient: UserRegistrationClientService) { }
+  constructor(private userClient: UserClientService) { }
 
   ngOnInit() {
   }

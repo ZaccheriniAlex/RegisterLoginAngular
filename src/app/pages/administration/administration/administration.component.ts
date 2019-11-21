@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllCommunityModules } from '@ag-grid-community/all-modules'
-import { UserLoginClientService } from 'src/app/services/user-client/user-client.service';
+import { UserClientService } from 'src/app/services/user-client/user-client.service';
 
 @Component({
   selector: 'app-administration',
@@ -20,7 +20,7 @@ export class AdministrationComponent implements OnInit {
 
   modules = AllCommunityModules;
 
-  constructor(private userClient: UserLoginClientService) { }
+  constructor(private userClient: UserClientService) { }
 
   ngOnInit() {
     this.rowData = this.userClient.getUsers();
