@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserClientService } from 'src/app/services/user-client/user-client.service'
-import { Router } from '@angular/router';
-import { User } from 'src/app/features/model/User';
-import { tap, catchError } from 'rxjs/operators';
 import { CurrentUserService } from 'src/app/services/current-user/current-user.service';
-import { of } from 'rxjs';
 import { BaseUser } from 'src/app/features/model/base-user';
 import { LoggerService } from 'src/app/services/logger/logger.service';
 

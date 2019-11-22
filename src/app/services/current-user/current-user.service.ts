@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseUser } from 'src/app/features/model/base-user';
 import { UserClientService } from '../user-client/user-client.service';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { User } from 'src/app/features/model/User';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { User } from 'src/app/features/model/User';
 export class CurrentUserService {
 
   private currentUser: BaseUser;
+  private currentId: number;
 
   constructor(private userClient: UserClientService) { }
 
@@ -33,6 +34,7 @@ export class CurrentUserService {
     return this.userClient.getUsers().pipe(map(result => {
       for (let user of result) {
         if (this._isSameUser(user)) {
+          this.currentId = user.id;
           return true;
         }
       }
@@ -42,5 +44,14 @@ export class CurrentUserService {
 
   private _isSameUser(user: User): boolean {
     return (user.user == this.currentUser.username) && (user.password == this.currentUser.password);
+  }
+
+  requestToken() {
+    if(this.isLogged()) {
+      this.userClient.requestToken(this.currentId).pipe(tap( retrievedToken => {
+        this.currentUser.setToken(retrievedToken);
+        console.log('Token impostato');
+      })).subscribe();
+    }
   }
 }

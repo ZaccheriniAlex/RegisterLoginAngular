@@ -18,6 +18,7 @@ export class LoggerService {
     this.currentUser.isRegistered().pipe(tap(isRegistered => {
       if(isRegistered) {
         this.currentUser.setLoginStatus(true);
+        this._requestToken();
         this.loginRouter.navigate();
         return;
       }
@@ -30,5 +31,9 @@ export class LoggerService {
   public logout() {
     this.currentUser.setLoginStatus(false);
     this.loginRouter.navigate();
+  }
+
+  private _requestToken() {
+    this.currentUser.requestToken();
   }
 }
