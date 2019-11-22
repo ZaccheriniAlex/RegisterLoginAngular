@@ -6,6 +6,7 @@ export class User {
     public user: string,
     public password: string,
     public eta: number,
+    public gender: string,
     public statoCivile: string,
     public sport: string[],
     public id?: number,

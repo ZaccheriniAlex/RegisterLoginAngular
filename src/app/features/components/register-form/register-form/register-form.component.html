@@ -54,6 +54,71 @@
       </div>
       <app-invalid-paragraph [referredFormControlName]="confirmPassword" [conditionToShow]="submitted"></app-invalid-paragraph>
     </div>
+    <div class="form-group row">
+      <label for="eta" class="col-sm-2">
+        Età:
+      </label>
+      <div class="col-sm-10">
+        <input id="eta" type="number" class="formControl" formControlName="eta" (keyup)=0>
+      </div>
+      <app-invalid-paragraph [referredFormControlName]="eta" [conditionToShow]="submitted"></app-invalid-paragraph>
+    </div>
+    <div class="form-group row">
+        <div for="gender" class="col-sm-2">
+          Genere:
+        </div>
+        <div class="col-sm-10 d-flex">
+          <label for="male">
+            <input id="male" type="radio" class="formControl" formControlName="gender" value="male" (keyup)=0>
+            Maschio
+          </label>
+          <label for="female">
+            <input id="female" type="radio" class="formControl rightInput" formControlName="gender" value="female" (keyup)=0>
+            Femmina
+          </label>
+        </div>
+        <app-invalid-paragraph [referredFormControlName]="eta" [conditionToShow]="submitted"></app-invalid-paragraph>
+      </div>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        Stato civile:
+      </div>
+      <div class="col-sm-10 d-flex">
+        <label for="sposato">
+          <input id="sposato" type="radio" class="formControl" formControlName="civilState" value="sposato" (keyup)=0>
+          Sposato
+        </label>
+        <label *ngIf="gender.value == 'male'" for="celibe">
+          <input id="celibe" type="radio" class="formControl rightInput" formControlName="civilState" value="celibe" (keyup)=0>
+          Celibe
+        </label>
+        <label *ngIf="gender.value == 'female'" for="nubile">
+          <input id="nubile" type="radio" class="formControl rightInput" formControlName="civilState" value="nubile" (keyup)=0>
+          Nubile
+        </label>
+      </div>
+      <app-invalid-paragraph [referredFormControlName]="confirmPassword" [conditionToShow]="submitted"></app-invalid-paragraph>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+          Sport:
+        </div>
+        <div class="col-sm-10 d-flex">
+          <label for="calcio">
+            <input id="calcio" type="checkbox" class="formControl" formControlName="sport" value="calcio" (keyup)=0>
+            Calcio
+          </label>
+          <label for="basket">
+              <input id="basket" type="checkbox" class="formControl rightInput" formControlName="sport" value="basket" (keyup)=0>
+            Basket
+          </label>
+          <label for="altro">
+            <input id="altro" type="checkbox" class="formControl rightInput" formControlName="sport" value="altro" (keyup)=0>
+            Altro
+          </label>
+        </div>
+        <app-invalid-paragraph [referredFormControlName]="confirmPassword" [conditionToShow]="submitted"></app-invalid-paragraph>
+      </div>
     <button class="btn btn-primary" type="submit">Invia</button>
     <button class="btn btn-primary btn-reset" type="reset" (click)="resetData()">Reset</button>
     <div *ngIf="registrationGroup.errors?.invalidPassword && submitted">

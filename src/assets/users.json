@@ -97,18 +97,16 @@
       "id": 11
     },
     {
-      "id": "Mario",
-      "name": "Rossi",
-      "surname": "mail.mail@mail.com",
-      "mail": "mario",
-      "user": "mario"
-    },
-    {
-      "id": "Luca",
-      "name": "Verdi",
-      "surname": "mail.mail@mail.com",
-      "mail": "luca",
-      "user": "luca"
+      "name": "Alex",
+      "surname": "Zaccherini",
+      "mail": "mail.mail@mail.com",
+      "user": "zac",
+      "password": "zac",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "celibe",
+      "sport": true,
+      "id": 12
     }
   ]
 }

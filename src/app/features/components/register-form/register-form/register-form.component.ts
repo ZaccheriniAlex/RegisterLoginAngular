@@ -29,6 +29,10 @@ export class RegisterFormComponent implements OnInit {
       user: ['', [Validators.required] ],
       password: ['', [Validators.required] ],
       confirmPassword: ['', [Validators.required] ],
+      eta: ['', [Validators.required]],
+      gender: ['male', [Validators.required]],
+      civilState: ['sposato', [Validators.required]],
+      sport: ['', [Validators.required]],
     },
     {
       validators: [confirmPasswordValidator()],
@@ -41,6 +45,11 @@ export class RegisterFormComponent implements OnInit {
   get user() { return this.registrationGroup.get('user'); }
   get password() { return this.registrationGroup.get('password'); }
   get confirmPassword() { return this.registrationGroup.get('confirmPassword'); }
+  get eta() { return this.registrationGroup.get('eta'); }
+  get gender() { return this.registrationGroup.get('gender'); }
+  get civilState() { return this.registrationGroup.get('civilState'); }
+  get sport() { return this.registrationGroup.get('sport'); }
+
 
   sendData() {
     this.submitted = true;
@@ -55,6 +64,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   private _getUserFromForm(): User {
-    return new User(this.name.value, this.surname.value, this.mail.value, this.user.value, this.password.value);
+    return new User(this.name.value, this.surname.value, this.mail.value, this.user.value,
+      this.password.value, this.eta.value, this.gender.value, this.civilState.value, this.sport.value);
   }
 }
