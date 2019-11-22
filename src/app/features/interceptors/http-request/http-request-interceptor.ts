@@ -15,18 +15,19 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token = this.currentUser.getCurrentUser().getToken();
+    const token = this.currentUser.getCurrentUser() ? this.currentUser.getCurrentUser().getToken() : null;
+
     if(!!token) {
       req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${ token }`,
         }
       })
-      console.log('è stato aggiunto il token di autorizzazione');
+      console.log('è stato aggiunto il token di autorizzazione alla richiesta http');
     }
     return next.handle(req).pipe(map(response => {
       if (response instanceof HttpResponse) {
-        // QUI MODIFICO LA RISPOSTA DEL SERVER
+        // QUI POSSO MODIFICARE LA RISPOSTA DEL SERVER
       }
       return response;
     }));

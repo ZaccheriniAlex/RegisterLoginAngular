@@ -26,4 +26,8 @@ export class AdministrationComponent implements OnInit {
     this.rowData = this.userClient.getUsers();
   }
 
+  updateData() {
+    this.rowData = this.userClient.getUsers();
+  }
+
 }

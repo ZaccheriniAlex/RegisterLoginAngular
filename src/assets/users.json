@@ -95,6 +95,20 @@
       "user": "Martina",
       "password": "aa",
       "id": 11
+    },
+    {
+      "id": "Mario",
+      "name": "Rossi",
+      "surname": "mail.mail@mail.com",
+      "mail": "mario",
+      "user": "mario"
+    },
+    {
+      "id": "Luca",
+      "name": "Verdi",
+      "surname": "mail.mail@mail.com",
+      "mail": "luca",
+      "user": "luca"
     }
   ]
 }

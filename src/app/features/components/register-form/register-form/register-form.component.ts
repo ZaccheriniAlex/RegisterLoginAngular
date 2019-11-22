@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from 'src/app/features/validators/confirm-password-validator/confirm-password-validator';
 import { EventEmitter } from '@angular/core';
-import { User } from 'src/app/features/model/User';
+import { User } from 'src/app/features/model/user';
 
 @Component({
   selector: 'app-register-form',
@@ -55,6 +55,6 @@ export class RegisterFormComponent implements OnInit {
   }
 
   private _getUserFromForm(): User {
-    return new User(this.name.value, this.surname.value, this.mail.value, this.user.value, this.password.value)
+    return new User(this.name.value, this.surname.value, this.mail.value, this.user.value, this.password.value);
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseUser } from 'src/app/features/model/base-user';
 import { UserClientService } from '../user-client/user-client.service';
 import { map, tap } from 'rxjs/operators';
-import { User } from 'src/app/features/model/User';
+import { User } from 'src/app/features/model/user';
 
 @Injectable({
   providedIn: 'root'

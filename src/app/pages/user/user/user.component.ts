@@ -12,7 +12,6 @@ export class UserComponent implements OnInit {
 
   constructor(private routeActiver: ActivatedRoute) { }
 
-  //TODO: REFACTOR WITHOUT SNAPSHOT
   ngOnInit() {
     this.routeActiver.queryParamMap.subscribe( queryParams => {
       this.username = queryParams.get('username');

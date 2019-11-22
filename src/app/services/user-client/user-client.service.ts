@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { User } from 'src/app/features/model/User';
+import { User } from 'src/app/features/model/user';
 import { map } from 'rxjs/operators';
 
 const url = 'http://localhost:3000/users'
