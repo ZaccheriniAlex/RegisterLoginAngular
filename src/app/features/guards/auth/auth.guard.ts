@@ -21,19 +21,19 @@ export class AuthGuard implements CanActivate {
   }
 
   private _checkLogin(): boolean {
-    if (this.currentUserService.isLogged()) {
+    if (!!this.currentUserService.getCurrentUser() && this.currentUserService.isLogged()) {
       if (this._isAdminLogged()) {
         return true;
       } else {
         window.alert('Non è stato usato un username valido, riprova a fare il login');
         this.router.navigate(['login']);
       }
-      this.router.navigate(['']);
-      return false;
     }
+    this.router.navigate(['']);
+    return false;
   }
 
   private _isAdminLogged() {
-    return this.currentUserService.getCurrentUsername() == 'admin';
+    return this.currentUserService.getCurrentUser().username == 'admin' && this.currentUserService.isLogged();
   }
 }

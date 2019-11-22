@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopNavbarComponent } from './features/components/top-navbar/top-navbar/top-navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
+import { interceptorProviders } from './features/interceptors/interceptor-provider';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HomePageComponent } from './pages/home-page/home-page/home-page.compone
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [interceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
