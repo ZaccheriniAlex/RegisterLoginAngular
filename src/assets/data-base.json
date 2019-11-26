@@ -107,6 +107,125 @@
       "statoCivile": "celibe",
       "sport": true,
       "id": 12
+    },
+    {
+      "name": "Alex",
+      "surname": "Zaccherini",
+      "mail": "mail.mail@mail.com",
+      "user": "zac",
+      "password": "zac",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Calcio",
+        "Basket"
+      ],
+      "id": 13
+    },
+    {
+      "name": "Martina",
+      "surname": "finetti",
+      "mail": "mail.mail@mail.com",
+      "user": "zac",
+      "password": "zac",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Calcio",
+        "Basket",
+        ""
+      ],
+      "id": 14
+    },
+    {
+      "name": "AA",
+      "surname": "AA",
+      "mail": "mail.mail@mail.com",
+      "user": "aa",
+      "password": "aa",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        null,
+        null,
+        null
+      ],
+      "id": 15
+    },
+    {
+      "name": "aa",
+      "surname": "aa",
+      "mail": "mail.mail@mail.com",
+      "user": "aa",
+      "password": "aa",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Basket"
+      ],
+      "id": 16
+    },
+    {
+      "name": "bb",
+      "surname": "bb",
+      "mail": "mail.mail@mail.com",
+      "user": "bb",
+      "password": "bb",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Calcio",
+        "Altro"
+      ],
+      "id": 17
+    },
+    {
+      "name": "c",
+      "surname": "c",
+      "mail": "mail.mail@mail.com",
+      "user": "c",
+      "password": "c",
+      "eta": 22,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Calcio"
+      ],
+      "id": 18
+    },
+    {
+      "name": "i",
+      "surname": "i",
+      "mail": "mail.mail@mail.com",
+      "user": "i",
+      "password": "i",
+      "eta": 5,
+      "gender": "male",
+      "statoCivile": "sposato",
+      "sport": [
+        "Calcio",
+        "Basket"
+      ],
+      "id": 19
+    }
+  ],
+  "sports": [
+    {
+      "name": "calcio",
+      "value": "Calcio"
+    },
+    {
+      "name": "basket",
+      "value": "Basket"
+    },
+    {
+      "name": "altro",
+      "value": "Altro"
     }
   ]
 }

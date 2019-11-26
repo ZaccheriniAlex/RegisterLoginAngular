@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register.component';
 import { RegisterFormComponent } from 'src/app/features/components/register-form/register-form/register-form.component';
 import { InvalidParagraphModule } from 'src/app/features/components/invalidParagraph/invalid-paragraph/invalid-paragraph.module';
+import { CheckboxGroupComponent } from 'src/app/features/components/checkbox-group/checkbox-group.component';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent }
@@ -14,6 +15,7 @@ const routes: Routes = [
   declarations: [
     RegisterComponent,
     RegisterFormComponent,
+    CheckboxGroupComponent,
   ],
   imports: [
     CommonModule,

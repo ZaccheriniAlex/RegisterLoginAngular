@@ -9,6 +9,7 @@ export class User {
     public gender: string,
     public statoCivile: string,
     public sport: string[],
+    public hobbies: string[],
     public id?: number,
   ) { }
 

@@ -1,8 +1,10 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl, FormArrayName } from '@angular/forms';
 import { confirmPasswordValidator } from 'src/app/features/validators/confirm-password-validator/confirm-password-validator';
 import { EventEmitter } from '@angular/core';
 import { User } from 'src/app/features/model/user';
+import { SportClientService } from 'src/app/services/sport-client/sport-client.service';
+import { CheckboxItem } from '../../checkbox-group/checkbox-item/checkbox-item.component';
 
 @Component({
   selector: 'app-register-form',
@@ -13,9 +15,36 @@ export class RegisterFormComponent implements OnInit {
 
   @Output() sendedData = new EventEmitter<User>();
 
-  valore;
+  allSports = [{
+    name: "calcio",
+    value: "Calcio"
+  },
+  {
+    name: "basket",
+    value: "Basket"
+  },
+  {
+    name: "altro",
+    value: "Altro"
+  }];
+
+  allHobbies = [{
+    name: "pesca",
+    value: "Pesca"
+  },
+  {
+    name: "cavallo",
+    value: "Cavallo"
+  },
+  {
+    name: "altro",
+    value: "Altro"
+  }];
+
   registrationGroup: FormGroup;
   submitted: boolean = false;
+  hobbiesOptions = new Array<CheckboxItem>();
+  selectedHobbies = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,11 +61,13 @@ export class RegisterFormComponent implements OnInit {
       eta: ['', [Validators.required]],
       gender: ['male', [Validators.required]],
       civilState: ['sposato', [Validators.required]],
-      sport: ['', [Validators.required]],
+      sports: this._createCheckboxSportGroup(),
     },
     {
       validators: [confirmPasswordValidator()],
     });
+
+    this.hobbiesOptions = this.allHobbies.map(x => new CheckboxItem(x.value, x.name));
   }
 
   get name() { return this.registrationGroup.get('name'); }
@@ -48,8 +79,30 @@ export class RegisterFormComponent implements OnInit {
   get eta() { return this.registrationGroup.get('eta'); }
   get gender() { return this.registrationGroup.get('gender'); }
   get civilState() { return this.registrationGroup.get('civilState'); }
-  get sport() { return this.registrationGroup.get('sport'); }
+  get sports() { return this._getSelectedSports() }
+  get hobbies() { return this.selectedHobbies }
 
+  _createCheckboxSportGroup(){
+    const arr = this.allSports.map(sport => {
+      return new FormControl();
+    });
+    return new FormArray(arr);
+  }
+
+  _getSelectedSports() {
+    let selectedSports: string[] = [];
+    this.registrationGroup.controls.sports['controls'].map((sport, i) => {
+      if (sport.value) {
+        selectedSports.push(this.allSports[i].value);
+      };
+    });
+    return selectedSports;
+  }
+
+  onChangeHobbies(selectedSports: string[]) {
+    this.selectedHobbies = selectedSports;
+    console.log(this.selectedHobbies);
+  }
 
   sendData() {
     this.submitted = true;
@@ -65,6 +118,6 @@ export class RegisterFormComponent implements OnInit {
 
   private _getUserFromForm(): User {
     return new User(this.name.value, this.surname.value, this.mail.value, this.user.value,
-      this.password.value, this.eta.value, this.gender.value, this.civilState.value, this.sport.value);
+      this.password.value, this.eta.value, this.gender.value, this.civilState.value, this.sports, this.hobbies);
   }
 }

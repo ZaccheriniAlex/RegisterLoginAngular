@@ -1,0 +1,10 @@
+<form [formGroup]="checkboxForm">
+  <div class="d-flex" formArrayName="items">
+    <div *ngFor="let item of checkboxForm.controls.items.controls; index as i">
+      <label [for]="options[i].label">
+        <input [id]="options[i].label" [formControlName]="i" type="checkbox" [ngClass]="{'right-input' : i != 0}" >
+        {{ options[i].value }}
+      </label>
+    </div>
+  </div>
+</form>
